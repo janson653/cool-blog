@@ -9,6 +9,7 @@ import {SiteHeaderComponent} from "./common-components/site-header/site-header.c
 import {SiteFooterComponent} from "./common-components/site-footer/site-footer.component";
 import {BlogModuleModule} from "./blog-module/blog-module.module";
 import {AdminModuleModule} from "./admin-module/admin-module.module";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'admin', pathMatch: 'full'},
@@ -26,11 +27,13 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { useHash: true }),
     BlogModuleModule,
     AdminModuleModule
   ],
-  providers: [],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy} //在路由前加#
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
