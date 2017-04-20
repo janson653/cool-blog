@@ -1,3 +1,7 @@
-<p>
-  archives-component works!
-</p>
+<div class="card" *ngFor="let article of articles">
+  <div class="card-block">
+    <h6 class="card-title">
+      <a class="nav-link" [routerLink]="['/blog/articles', article.id]">{{article.title}}</a>
+    </h6>
+  </div>
+</div>

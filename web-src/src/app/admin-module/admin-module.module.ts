@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RichTextComponentComponent } from './rich-text-component/rich-text-component.component';
 import {RouterModule, Routes} from "@angular/router";
+import {MarkdownModule} from "angular2-markdown";
+import {FormsModule} from "@angular/forms";
 
 
 const adminRoutes: Routes = [
@@ -12,7 +14,9 @@ const adminRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(adminRoutes)
+    FormsModule,
+    RouterModule.forChild(adminRoutes),
+    MarkdownModule.forRoot()
   ],
   declarations: [RichTextComponentComponent]
 })
