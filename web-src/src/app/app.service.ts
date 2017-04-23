@@ -38,6 +38,7 @@ export class AppService {
   }
 
   public getArticles(): Observable<any> {
+    console.log(this.serviceHost)
     return this.http.get(this.serviceHost + "api/article");
   }
 
