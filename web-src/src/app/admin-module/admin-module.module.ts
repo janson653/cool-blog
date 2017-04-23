@@ -8,7 +8,7 @@ import {FormsModule} from "@angular/forms";
 
 const adminRoutes: Routes = [
   { path: '', redirectTo: 'richtext', pathMatch: 'full' },
-  { path: 'richtext', component: RichTextComponentComponent }
+  { path: 'richtext/:id', component: RichTextComponentComponent }
 ];
 
 @NgModule({

@@ -5,7 +5,12 @@ var Article = require('../models/Article.js');
 
 /* GET Archives, 要写在router / 之前，否则出错 */
 router.get('/archives', function (req, res, next) {
-    Article.find({}, {title: 1, author: 1, tags: 1, create_time: 1}, function (err, products) {
+    Article.find({}, {
+        title: 1,
+        author: 1,
+        tags: 1,
+        create_time: 1
+    }, {sort: {create_time: -1}}, function (err, products) {
         if (err) return next(err);
         res.json(products);
     });
@@ -13,9 +18,14 @@ router.get('/archives', function (req, res, next) {
 
 /* GET ALL Articles */
 router.get('/', function (req, res, next) {
-    Article.find(function (err, products) {
+    Article.find({}, null, {sort: {create_time: -1}}, function (err, articles) {
         if (err) return next(err);
-        res.json(products);
+        var textNumLimit = 200;
+        articles.forEach(function (article) {
+            var realNumLimit = article.content.length < textNumLimit ? article.content.length : textNumLimit;
+            article.content = article.content.substr(0, textNumLimit)
+        });
+        res.json(articles);
     });
 });
 

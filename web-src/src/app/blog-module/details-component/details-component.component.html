@@ -2,6 +2,10 @@
   <div class="card-block">
     <h4 class="card-title">
       {{article.title}}
+      <button type="button" class="btn btn-outline-warning btn-sm">
+        <a class="nav-link" [routerLink]="['/admin/richtext', article._id]" style="display: inline">Edit</a>
+      </button>
+      <button type="button" class="btn btn-outline-danger btn-sm" (click)="onDeleteArticle()">Delete</button>
     </h4>
     <markdown class="card-text" style="height: 1px; overflow: hidden">
       {{article.content}}

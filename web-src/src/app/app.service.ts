@@ -19,7 +19,7 @@ export class AppService {
     article.create_time = new Date();
     article.update_time = new Date();
     article.title = 'wenzhang1';
-    article.tags = ['test'];
+    article.tags = 'test';
     return [article, article]
   }
 
@@ -33,7 +33,7 @@ export class AppService {
     article.create_time = new Date();
     article.update_time = new Date();
     article.title = 'wenzhang1';
-    article.tags = ['test'];
+    article.tags = 'test';
     return article;
   }
 
@@ -46,11 +46,15 @@ export class AppService {
   }
 
   public updateArticle(article: Article): Observable<any> {
-    return this.http.put(this.serviceHost + "api/article", article);
+    return this.http.put(this.serviceHost + "api/article/" + article._id, article);
   }
 
   public saveArticle(article: Article): Observable<any> {
     return this.http.post(this.serviceHost + "api/article", article);
+  }
+
+  public deleteArticle(id: string): Observable<any> {
+    return this.http.delete(this.serviceHost + "api/article/" + id);
   }
 
   public getArchives(): Observable<any> {

@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Article} from "../../../models/article";
 import {AppService} from "../../app.service";
 
@@ -13,7 +13,7 @@ export class DetailsComponentComponent implements OnInit {
 
   article: Article;
 
-  constructor(private route: ActivatedRoute, private appService: AppService) {
+  constructor(private route: ActivatedRoute, private router: Router, private appService: AppService) {
   }
 
   ngOnInit() {
@@ -25,6 +25,15 @@ export class DetailsComponentComponent implements OnInit {
       })
     })
 
+  }
+
+  onDeleteArticle() {
+    this.appService.deleteArticle(this.article._id).subscribe(res => {
+      if(res.status == 200) {
+        alert("delete successfully")
+        this.router.navigate(["/"]);
+      }
+    })
   }
 
 }
