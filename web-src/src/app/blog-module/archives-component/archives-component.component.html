@@ -1,7 +1,17 @@
-<div class="card" *ngFor="let article of articles">
-  <div class="card-block">
-    <h6 class="card-title">
-      <a class="nav-link" [routerLink]="['/blog/articles', article.id]">{{article.title}}</a>
-    </h6>
-  </div>
-</div>
+<!--<div class="card" *ngFor="let article of articles">-->
+  <!--<div class="card-block">-->
+    <!--<h6 class="card-title">-->
+      <!--<a class="nav-link" [routerLink]="['/blog/articles', article.id]">{{article.title}}</a>-->
+    <!--</h6>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--<section *ngFor="let article of articles">-->
+  <!--<h4>{{articleArray[0].date.getFullYear()}}</h4>-->
+  <ul>
+    <li *ngFor="let article of articles">
+      <time class="margin-h">{{article.create_time | date: 'yyyy-MM-dd'}}</time> —
+      <a class="nav-link" [routerLink]="['/blog/articles', article._id]">{{article.title}}</a>
+    </li>
+  </ul>
+<!--</section>-->

@@ -19,7 +19,10 @@ export class DetailsComponentComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(p => {
       console.log('want to open article: ' + p.id)
-      this.article = this.appService.getMockupArticleById(p.id);
+      //this.article = this.appService.getMockupArticleById(p.id);
+      this.appService.getArticleById(p.id).subscribe(res => {
+        this.article = res.json();
+      })
     })
 
   }

@@ -1,7 +1,7 @@
 <div class="card" *ngFor="let article of articles">
   <div class="card-block">
     <h4 class="card-title">
-      <a class="nav-link" [routerLink]="['/blog/articles', article.id]">{{article.title}}</a>
+      <a class="nav-link" [routerLink]="['/blog/articles', article._id]">{{article.title}}</a>
     </h4>
     <markdown class="card-text" style="height: 1px; overflow: hidden">
       {{article.content}}

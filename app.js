@@ -11,8 +11,8 @@ mongoose.connect('mongodb://localhost/cool-blog')
     .then(() =>  console.log('connection successful'))
 .catch((err) => console.error(err));
 
-var book = require('./routes/book');
 var user = require('./routes/user');
+var article = require('./routes/article');
 
 var app = express();
 
@@ -21,13 +21,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'web-dist')));
 
-app.use('/apitest', function(req, res, next) {
+app.use('/api/test', function(req, res, next) {
     res.send('api test');
 });
 
-app.use('/book', book);
+app.use('/api/user', user);
 
-app.use('/user', user);
+app.use('/api/article', article);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

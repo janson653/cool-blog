@@ -11,11 +11,14 @@ import {Article} from "../../../models/article";
 export class ArchivesComponentComponent implements OnInit {
   articles: Article[];
 
-  constructor(appService: AppService) {
-    this.articles = appService.getMockupArticles();
+  constructor(private appService: AppService) {
+    // this.articles = appService.getMockupArticles();
   }
 
   ngOnInit() {
+    this.appService.getArchives().subscribe(res => {
+      this.articles = res.json();
+    })
   }
 
 }

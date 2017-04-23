@@ -12,12 +12,15 @@ export class SummaryComponentComponent implements OnInit {
 
   articles: Article[];
 
-  constructor(appService: AppService) {
-    this.articles = appService.getMockupArticles();
+  constructor(private appService: AppService) {
+    //this.articles = appService.getMockupArticles();
   }
 
   ngOnInit() {
-
+    this.appService.getArticles().subscribe(res => {
+      console.log(res.json())
+      this.articles = res.json();
+    })
   }
 
 }
