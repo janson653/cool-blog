@@ -10,6 +10,7 @@ import {SiteFooterComponent} from "./common-components/site-footer/site-footer.c
 import {BlogModuleModule} from "./blog-module/blog-module.module";
 import {AdminModuleModule} from "./admin-module/admin-module.module";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'admin', pathMatch: 'full'},
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
     BlogModuleModule,
-    AdminModuleModule
+    AdminModuleModule,
+    NgbModule.forRoot()
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy} //在路由前加#
