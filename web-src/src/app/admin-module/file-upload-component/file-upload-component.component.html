@@ -1,0 +1,14 @@
+<p>
+  file-upload-component works!
+</p>
+
+<image-upload
+  [max]="100"
+  [url]="'api/fileupload'"
+  [headers]="[
+    {header: 'Authorization', value: 'MyToken'}
+  ]"
+  [buttonCaption]="'Select Images!'"
+  [dropBoxMessage]="'Drop your images here!'"
+  (onFileUploadFinish)="imageUploaded($event)"
+></image-upload>

@@ -11,6 +11,7 @@ import {BlogModuleModule} from "./blog-module/blog-module.module";
 import {AdminModuleModule} from "./admin-module/admin-module.module";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {ImageUploadModule} from "angular2-image-upload";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'admin', pathMatch: 'full'},
@@ -31,7 +32,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { useHash: true }),
     BlogModuleModule,
     AdminModuleModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy} //在路由前加#

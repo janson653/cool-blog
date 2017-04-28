@@ -6,6 +6,7 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class AppService {
 
+  //private serviceHost = 'http://localhost:3000/'
   private serviceHost = ''
 
   constructor(private http: Http) {

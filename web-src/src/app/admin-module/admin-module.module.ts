@@ -6,6 +6,8 @@ import {MarkdownModule} from "angular2-markdown";
 import {FormsModule} from "@angular/forms";
 import {LoginComponentComponent} from './login-component/login-component.component';
 import {AuthGuard} from "../auth.guard";
+import { FileUploadComponentComponent } from './file-upload-component/file-upload-component.component';
+import {ImageUploadModule} from "angular2-image-upload";
 
 
 const adminRoutes: Routes = [
@@ -13,7 +15,8 @@ const adminRoutes: Routes = [
   {
     path: 'richtext/:id', component: RichTextComponentComponent, canActivate: [AuthGuard]
   },
-  {path: 'login', component: LoginComponentComponent}
+  {path: 'login', component: LoginComponentComponent},
+  {path: 'upload', component: FileUploadComponentComponent}
 ];
 
 @NgModule({
@@ -21,9 +24,10 @@ const adminRoutes: Routes = [
     CommonModule,
     FormsModule,
     RouterModule.forChild(adminRoutes),
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    ImageUploadModule.forRoot(),
   ],
-  declarations: [RichTextComponentComponent, LoginComponentComponent],
+  declarations: [RichTextComponentComponent, LoginComponentComponent, FileUploadComponentComponent],
   providers: [AuthGuard]
 })
 export class AdminModuleModule {
