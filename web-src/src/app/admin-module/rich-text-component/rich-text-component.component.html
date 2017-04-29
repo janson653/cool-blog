@@ -2,6 +2,9 @@
   <div class="col-md-6" style="border-right: 1px dotted black">
     <div>
       <button type="button" class="btn btn-outline-primary btn-sm" (click)="onSave()">Save</button>
+      <button type="button" class="btn btn-outline-warning btn-sm">
+        <a class="nav-link" target="_blank" [routerLink]="['/admin/upload']" style="display: inline">Upload</a>
+      </button>
     </div>
     <div>
       <span>标题： </span>

@@ -1,45 +1,44 @@
-<div class="site-header">
-  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">
-      <img src="../../../assets/img/logo.jpg" style="height: 36px; border-radius: 10%">
-    </a>
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse blog-masthead">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+          data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">
+    <img src="../../../assets/img/logo.jpg" style="height: 36px; border-radius: 10%">
+  </a>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink='/blog/summary'>Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink='/blog/archives'>Archives</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink='/admin/richtext/undefined'>Write</a>
-        </li>
-      </ul>
-
-      <div ngbDropdown class="d-inline-block mr-2">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Me</button>
-        <div class="dropdown-menu" aria-labelledby="dropdownBasic1">
-          <button class="dropdown-item">
-            <a class="dropdown-item" routerLink='/admin/login'>AboutMe</a>
-          </button>
-          <button class="dropdown-item">
-            <a class="dropdown-item" routerLink='/admin/login'>Login</a>
-          </button>
-          <button class="dropdown-item">
-            <a class="dropdown-item" href="https://github.com/janson653" target="_blank">Github</a>
-          </button>
-        </div>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink='/blog/summary'>Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/blog/archives'>Archives</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/admin/richtext/undefined'>Write</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="keyword">
+    </form>
+    <!-- Example split danger button -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-xs btn-secondary">
+        Search
+      </button>
+      <button type="button" class="btn btn-xs btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink='/admin/login'>Login</a>
+        <a class="dropdown-item" href="https://github.com/janson653" target="_blank">Github</a>
+        <a class="dropdown-item" href="http://www.jianshu.com/u/558cffecb926" target="_blank">简书</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href='#'>About Me</a>
       </div>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      </form>
     </div>
-  </nav>
-</div>
 
+  </div>
+</nav>

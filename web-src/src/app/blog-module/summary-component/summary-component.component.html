@@ -1,10 +1,51 @@
-<div class="card" *ngFor="let article of articles">
-  <div class="card-block">
-    <h4 class="card-title">
-      <a class="nav-link" [routerLink]="['/blog/articles', article._id]">{{article.title}}</a>
-    </h4>
-    <markdown class="card-text" style="height: 1px; overflow: hidden">
-      {{article.content}}
-    </markdown>
+<div class="container">
+
+  <div class="blog-header">
+    <div class="container">
+      <h1 class="blog-title">janson's blog</h1>
+      <p class="lead blog-description">An example blog template built with Bootstrap.</p>
+    </div>
   </div>
-</div>
+
+  <div class="row">
+
+    <div class="col-sm-8 blog-main">
+      <div class="blog-post" *ngFor="let article of articles">
+        <h2 class="blog-post-title">
+          <a class="nav-link" [routerLink]="['/blog/articles', article._id]">{{article.title}}</a>
+        </h2>
+        <p class="blog-post-meta">{{article.create_time | date: 'yyyy-MM-dd hh:ss'}} by <a href="#">{{article.author}}</a></p>
+
+        <markdown>
+          {{article.content}}
+        </markdown>
+      </div><!-- /.blog-post -->
+
+    </div><!-- /.blog-main -->
+
+    <div class="col-sm-3 offset-sm-1 blog-sidebar">
+      <div class="sidebar-module sidebar-module-inset">
+        <h4>About</h4>
+        <p>this is my blog.</p>
+      </div>
+      <div class="sidebar-module">
+        <h4>Archives</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">March 2014</a></li>
+          <li><a href="#">February 2014</a></li>
+        </ol>
+      </div>
+      <div class="sidebar-module">
+        <h4>tags</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">java</a></li>
+          <li><a href="#">js</a></li>
+          <li><a href="#">js</a></li>
+        </ol>
+      </div>
+    </div><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
+
+</div><!-- /.container -->
+

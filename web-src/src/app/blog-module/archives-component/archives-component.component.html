@@ -1,17 +1,32 @@
-<!--<div class="card" *ngFor="let article of articles">-->
-  <!--<div class="card-block">-->
-    <!--<h6 class="card-title">-->
-      <!--<a class="nav-link" [routerLink]="['/blog/articles', article.id]">{{article.title}}</a>-->
-    <!--</h6>-->
-  <!--</div>-->
-<!--</div>-->
+<div class="container">
 
-<!--<section *ngFor="let article of articles">-->
-  <!--<h4>{{articleArray[0].date.getFullYear()}}</h4>-->
-  <ul>
-    <li *ngFor="let article of articles">
-      <time class="margin-h">{{article.create_time | date: 'yyyy-MM-dd'}}</time> —
-      <a class="nav-link" [routerLink]="['/blog/articles', article._id]">{{article.title}}</a>
-    </li>
-  </ul>
-<!--</section>-->
+  <div class="row">
+
+    <div class="col-sm-8 blog-main">
+      <ul>
+        <li *ngFor="let article of articles">
+          <time class="margin-h">{{article.create_time | date: 'yyyy-MM-dd hh:ss'}}</time>
+          —
+          <a class="nav-link" [routerLink]="['/blog/articles', article._id]">{{article.title}}</a>
+        </li>
+      </ul>
+    </div><!-- /.blog-main -->
+
+    <div class="col-sm-3 offset-sm-1 blog-sidebar">
+      <div class="sidebar-module sidebar-module-inset">
+        <h4>About</h4>
+        <p>this is my blog.</p>
+      </div>
+      <div class="sidebar-module">
+        <h4>tags</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">java</a></li>
+          <li><a href="#">js</a></li>
+          <li><a href="#">js</a></li>
+        </ol>
+      </div>
+    </div><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
+
+</div><!-- /.container -->

@@ -1,14 +1,46 @@
-<div class="card" *ngIf="article">
-  <div class="card-block">
-    <h4 class="card-title">
-      {{article.title}}
-      <button type="button" class="btn btn-outline-warning btn-sm">
-        <a class="nav-link" [routerLink]="['/admin/richtext', article._id]" style="display: inline">Edit</a>
-      </button>
-      <button type="button" class="btn btn-outline-danger btn-sm" (click)="onDeleteArticle()">Delete</button>
-    </h4>
-    <markdown class="card-text" style="height: 1px; overflow: hidden">
-      {{article.content}}
-    </markdown>
-  </div>
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-sm-8 blog-main">
+      <div class="blog-post" *ngIf="article">
+        <h2 class="blog-post-title">
+          {{article.title}}
+          <button type="button" class="btn btn-outline-warning btn-sm">
+            <a class="nav-link" [routerLink]="['/admin/richtext', article._id]" style="display: inline">Edit</a>
+          </button>
+          <button type="button" class="btn btn-outline-danger btn-sm" (click)="onDeleteArticle()">Delete</button>
+        </h2>
+        <p class="blog-post-meta">{{article.create_time | date: 'yyyy-MM-dd hh:ss'}} by <a href="#">{{article.author}}</a></p>
+
+        <markdown>
+          {{article.content}}
+        </markdown>
+      </div><!-- /.blog-post -->
+
+    </div><!-- /.blog-main -->
+
+    <div class="col-sm-3 offset-sm-1 blog-sidebar">
+      <div class="sidebar-module sidebar-module-inset">
+        <h4>About</h4>
+        <p>this is my blog.</p>
+      </div>
+      <div class="sidebar-module">
+        <h4>Archives</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">March 2014</a></li>
+          <li><a href="#">February 2014</a></li>
+        </ol>
+      </div>
+      <div class="sidebar-module">
+        <h4>tags</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">java</a></li>
+          <li><a href="#">js</a></li>
+          <li><a href="#">js</a></li>
+        </ol>
+      </div>
+    </div><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
 </div>

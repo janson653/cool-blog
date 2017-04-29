@@ -14,6 +14,7 @@ export class FileUploadComponentComponent implements OnInit {
 
   imageUploaded(e) {
     alert('upload done')
+    console.log(e)
   }
 
 }
