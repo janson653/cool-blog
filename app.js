@@ -7,13 +7,7 @@ var mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-
-var options = {
-    server: {socketOptions: {keepAlive: 1}},
-    user: 'craftsmanAdmin',
-    pass: 'craftsman123'
-}
-mongoose.connect('mongodb://localhost/cool-blog', options)
+mongoose.connect('mongodb://craftsmanAdmin:craftsman123@craftsman.zone:27017/cool-blog?authSource=admin')
     .then(() =>  console.log('connection successful'))
 .catch((err) => console.error(err));
 
